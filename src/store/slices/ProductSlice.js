@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialMeals = [
+const initialState = [
 	{
 		id: 1,
 		name: "Spaghetti Carbonara",
@@ -23,9 +23,7 @@ const initialMeals = [
 
 const MealsSlice = createSlice({
 	name: "Meals",
-	initialState: {
-		meals: initialMeals,
-	},
+	initialState,
 	reducers: {
 		getAll: (state) => {
 			return state;
