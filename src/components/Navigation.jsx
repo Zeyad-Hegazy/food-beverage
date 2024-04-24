@@ -13,8 +13,8 @@ const Navigation = () => {
 					</Link>
 					<Link to="/cart" className="navbar-brand">
 						Cart
+						<Indicator />
 					</Link>
-					<Indicator />
 				</div>
 			</Container>
 		</Navbar>
