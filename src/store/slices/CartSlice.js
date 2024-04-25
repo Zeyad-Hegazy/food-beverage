@@ -41,6 +41,13 @@ const CartSlice = createSlice({
 			}
 		},
 
+		applyDiscount: (state, action) => {
+			const discountPercentage = action.payload.discountPercentage;
+			state.forEach((meal) => {
+				meal.price *= (100 - discountPercentage) / 100;
+			});
+		},
+
 		clear: () => {
 			return [];
 		},
@@ -52,6 +59,7 @@ export const {
 	deleteFromCart,
 	increaseAmount,
 	decreaseAmount,
+	applyDiscount,
 	clear,
 } = CartSlice.actions;
 

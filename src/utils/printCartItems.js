@@ -16,7 +16,7 @@ const printCartItems = (cartItems, totalPrice) => {
 						(item) => `<li>${item.name} - Quantity: ${item.amount}</li>`
 					)}
         </ul>
-        <p>Total Price: ${totalPrice}</p>
+        <p>Total Price: $ ${totalPrice}</p>
       </body>
     </html>
   `;

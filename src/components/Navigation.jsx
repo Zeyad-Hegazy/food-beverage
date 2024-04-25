@@ -9,7 +9,7 @@ const Navigation = () => {
 			<Container>
 				<div>
 					<Link to="/" className="navbar-brand">
-						Home
+						Menu
 					</Link>
 					<Link to="/cart" className="navbar-brand">
 						Cart
