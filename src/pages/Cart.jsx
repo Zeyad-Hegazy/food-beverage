@@ -1,6 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MealCard from "./../components/MealCard";
+import printCartItems from "./../utils/printCartItems";
 
 const Cart = () => {
 	const meals = useSelector((state) => state.cart);
@@ -34,6 +35,15 @@ const Cart = () => {
 					);
 				})}
 			</Row>
+
+			{meals.length > 0 && (
+				<button
+					className="btn btn-primary"
+					onClick={() => printCartItems(meals, totalPrice.toFixed(2))}
+				>
+					Print
+				</button>
+			)}
 		</>
 	);
 };
