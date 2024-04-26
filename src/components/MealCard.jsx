@@ -29,7 +29,7 @@ const MealCard = ({ meal }) => {
 			<Card.Body>
 				<Card.Title>{title}</Card.Title>
 				<Card.Text>{description}</Card.Text>
-				<Card.Text>Price: ${price}</Card.Text>
+				<Card.Text>Price: ${price.toFixed(2)}</Card.Text>
 				{location.pathname === "/cart" && (
 					<div className="d-flex">
 						<button className="p-2" onClick={handleDecrease}>

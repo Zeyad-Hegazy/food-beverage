@@ -15,6 +15,9 @@ const Navigation = () => {
 						Cart
 						<Indicator />
 					</Link>
+					<Link to="/table" className="navbar-brand">
+						Table
+					</Link>
 				</div>
 			</Container>
 		</Navbar>
