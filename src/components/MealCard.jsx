@@ -1,60 +1,30 @@
 /* eslint-disable react/prop-types */
 import { Card, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import {
-	addToCart,
-	deleteFromCart,
-	increaseAmount,
-	decreaseAmount,
-} from "../store/slices/CartSlice";
-import { useLocation } from "react-router-dom";
+import { addToCart } from "../store/slices/CartSlice";
 
 const MealCard = ({ meal }) => {
-	const { id, title, description, imageUrl, price, amount } = meal;
+	const { id, image, name, price } = meal;
 	const dispatch = useDispatch();
 
-	const location = useLocation();
-
-	const handleDecrease = () => {
-		dispatch(decreaseAmount({ id }));
-	};
-
-	const handleIncrease = () => {
-		dispatch(increaseAmount({ id }));
-	};
-
 	return (
-		<Card style={{ width: "18rem" }} className="mb-4">
-			<Card.Img variant="top" src={imageUrl} alt={title} />
+		<Card
+			style={{ textAlign: "center", background: "#f8f8f8" }}
+			className="mb-4 d-flex  justify-content-center align-items-center flex-column border-0"
+		>
+			<div>
+				<Card.Img variant="top" src={image} alt={name} className="w-100" />
+			</div>
 			<Card.Body>
-				<Card.Title>{title}</Card.Title>
-				<Card.Text>{description}</Card.Text>
-				<Card.Text>Price: ${price.toFixed(2)}</Card.Text>
-				{location.pathname === "/cart" && (
-					<div className="d-flex">
-						<button className="p-2" onClick={handleDecrease}>
-							-
-						</button>
-						<Card.Text>Amount: {amount}</Card.Text>
-						<button className="p-2" onClick={handleIncrease}>
-							+
-						</button>
-					</div>
-				)}
+				<Card.Title>{name}</Card.Title>
+				<Card.Text className="fw-medium">{price.toFixed(2)} LE</Card.Text>
 
-				{location.pathname === "/" && (
-					<Button variant="primary" onClick={() => dispatch(addToCart(meal))}>
-						Add to Cart
-					</Button>
-				)}
-				{location.pathname === "/cart" && (
-					<Button
-						variant="danger"
-						onClick={() => dispatch(deleteFromCart(meal))}
-					>
-						Remove
-					</Button>
-				)}
+				<Button
+					style={{ background: "#FF8500", border: "#FF8500" }}
+					onClick={() => dispatch(addToCart(meal))}
+				>
+					Add to Order
+				</Button>
 			</Card.Body>
 		</Card>
 	);
