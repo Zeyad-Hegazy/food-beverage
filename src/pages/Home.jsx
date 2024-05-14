@@ -2,9 +2,35 @@ import Navigation from "../components/Navigation";
 import MealCard from "../components/MealCard";
 import Cart from "../pages/Cart";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartArrowDown, faClose } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
 	const meals = useSelector((state) => state.meals);
+	const [cartVisible, setCartVisible] = useState(true);
+	const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsSmallScreen(window.innerWidth <= 1110);
+			if (window.innerWidth <= 1110) {
+				setCartVisible(false);
+			} else {
+				setCartVisible(true);
+			}
+		};
+
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	const toggleCartVisibility = () => {
+		setCartVisible((prevVisible) => !prevVisible);
+	};
 
 	return (
 		<div style={{ display: "flex", height: "100vh" }}>
@@ -26,10 +52,35 @@ const Home = () => {
 					flex: "1",
 					backgroundColor: "#fff",
 					overflowY: "auto",
+					width: cartVisible ? (isSmallScreen ? "100vw" : "100%") : "0",
+					height: cartVisible ? (isSmallScreen ? "100vh" : "100%") : "0",
+					display: cartVisible ? "block" : "none",
+					position: cartVisible ? isSmallScreen && "absolute" : "initial",
+					top: "0",
+					right: "0",
+					zIndex: "999",
 				}}
 			>
 				<Cart />
 			</div>
+			<button
+				className="px-3 py-2 border-0 rounded-2"
+				style={{
+					position: "fixed",
+					top: "20px",
+					right: "20px",
+					zIndex: "999",
+					background: "#ff8500",
+					color: "white",
+				}}
+				onClick={toggleCartVisibility}
+			>
+				{cartVisible ? (
+					<FontAwesomeIcon icon={faClose} />
+				) : (
+					<FontAwesomeIcon icon={faCartArrowDown} />
+				)}
+			</button>
 		</div>
 	);
 };

@@ -6,7 +6,7 @@ const Navigation = () => {
 			<Navbar data-bs-theme="light" className="w-100">
 				<input type="search" className="w-100 me-4 ms-4 mt-4" />
 			</Navbar>
-			<div className="d-flex justify-content-between align-content-center mt-1 pb-2 me-4 ms-4">
+			<div className="d-flex justify-content-between align-content-center mt-1 pb-2 me-4 ms-4 flex-wrap gap-4">
 				<div>Breakfast</div>
 				<div>Appetizres</div>
 				<div>Main Dish</div>

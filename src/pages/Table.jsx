@@ -1,6 +1,6 @@
 import { Navbar } from "react-bootstrap";
 import TableCard from "../components/TableCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ReserveForm from "./../components/ReserveForm";
 import { useState } from "react";
 
