@@ -15,11 +15,25 @@ const TableComponent = () => {
 	return (
 		<div className="w-100 pe-4 ps-4 ms-4 pt-4 bg-white">
 			<Navbar data-bs-theme="light" className="w-50">
-				<input type="search" className="w-100" />
+				<input
+					type="text"
+					className="w-100 rounded-4 border-0 p-2"
+					placeholder="Search"
+					name="name"
+					style={{ outline: "none", color: "black", background: "#F8F8F8" }}
+				/>{" "}
 			</Navbar>
 
 			<div className="d-flex gap-4">
-				<div>All</div>
+				<div
+					className="rounded-2 text-white"
+					style={{
+						background: "#ff8500",
+						paddingInline: "10px",
+					}}
+				>
+					All
+				</div>
 				<div>Reserved</div>
 			</div>
 

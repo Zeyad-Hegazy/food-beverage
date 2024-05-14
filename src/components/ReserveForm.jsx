@@ -26,28 +26,28 @@ const ReserveForm = ({ selectedTable, handleReserveClick }) => {
 					className="w-100 rounded-4 border-0 p-2 my-2 mt-4"
 					placeholder="Name"
 					name="name"
-					style={{ outline: "none", color: "#C6C6C6" }}
+					style={{ outline: "none", color: "black" }}
 				/>
 				<input
 					type="text"
 					className="w-100 rounded-4 border-0 p-2 my-2"
 					placeholder="Number"
 					name="number"
-					style={{ outline: "none", color: "#C6C6C6" }}
+					style={{ outline: "none", color: "black" }}
 				/>
 				<input
 					type="text"
 					className="w-100 rounded-4 border-0 p-2 my-2"
 					placeholder="Time"
 					name="time"
-					style={{ outline: "none", color: "#C6C6C6" }}
+					style={{ outline: "none", color: "black" }}
 				/>
 				<textarea
 					type="text"
 					className="w-100 rounded-4 border-0 p-2 my-2"
 					placeholder="Order"
 					name="order"
-					style={{ outline: "none", color: "#C6C6C6", resize: "none" }}
+					style={{ outline: "none", color: "black", resize: "none" }}
 				/>
 
 				<div className="align-self-end d-flex gap-4 mt-4">

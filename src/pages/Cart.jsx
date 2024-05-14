@@ -23,13 +23,13 @@ const CartOrderStep = ({
 					type="text"
 					className="w-100 rounded-4 border-0 p-2"
 					placeholder="Customer Name"
-					style={{ outline: "none", background: "#F8F8F8", color: "#C6C6C6" }}
+					style={{ outline: "none", background: "#F8F8F8", color: "black" }}
 				/>
 				<input
 					type="text"
 					className="w-100 rounded-4 border-0 p-2 mt-2 mb-2"
 					placeholder="Customer Number"
-					style={{ outline: "none", background: "#F8F8F8", color: "#C6C6C6" }}
+					style={{ outline: "none", background: "#F8F8F8", color: "black" }}
 				/>
 			</div>
 			<div className="mt-5 mb-5">
@@ -64,6 +64,7 @@ const CartOrderStep = ({
 						className="btn w-50"
 						style={{ background: "#FF8500", color: "white" }}
 						onClick={() => setStep("place")}
+						disabled={cart.length === 0}
 					>
 						Next
 					</button>
@@ -136,7 +137,7 @@ const CartPlaceStep = ({
 						type="text"
 						className="w-100 rounded-4 border-0 p-2"
 						placeholder="Table Number"
-						style={{ outline: "none", background: "#F8F8F8", color: "#C6C6C6" }}
+						style={{ outline: "none", background: "#F8F8F8", color: "black" }}
 					/>
 				)}
 
@@ -149,7 +150,7 @@ const CartPlaceStep = ({
 							style={{
 								outline: "none",
 								background: "#F8F8F8",
-								color: "#C6C6C6",
+								color: "black",
 							}}
 						/>
 						<div className="d-flex gap-3 mt-3">
@@ -160,7 +161,7 @@ const CartPlaceStep = ({
 								style={{
 									outline: "none",
 									background: "#F8F8F8",
-									color: "#C6C6C6",
+									color: "black",
 								}}
 							/>
 							<input
@@ -170,7 +171,7 @@ const CartPlaceStep = ({
 								style={{
 									outline: "none",
 									background: "#F8F8F8",
-									color: "#C6C6C6",
+									color: "black",
 								}}
 							/>
 						</div>
