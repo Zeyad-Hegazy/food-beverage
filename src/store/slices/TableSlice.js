@@ -41,9 +41,7 @@ const tableSlice = createSlice({
 	reducers: {
 		reserveTable: (state, action) => {
 			const { tabelNumber, name, number, time, order } = action.payload;
-			console.log(action.payload);
 			const table = state.find((s) => s.tabelNumber === tabelNumber);
-			console.log(table);
 			if (table) {
 				table.state = "reserved";
 				table.name = name;

@@ -10,7 +10,7 @@ const ReservedTable = ({ name, tabelNumber, order, time, number }) => {
 
 	return (
 		<div
-			className="d-flex justify-content-between align-items-center p-2 rounded-4"
+			className="d-flex justify-content-between align-items-center p-2 rounded-4 flex-wrap"
 			style={{ background: "#f8f8f8" }}
 		>
 			<div className="d-grid w-25">
@@ -62,9 +62,9 @@ const ReservedTable = ({ name, tabelNumber, order, time, number }) => {
 	);
 };
 
-const EmptyTable = ({ tabelNumber, onReserveClick }) => {
+const EmptyTable = ({ tabelNumber, handleReserveClick }) => {
 	const handleReserve = () => {
-		onReserveClick(tabelNumber);
+		handleReserveClick(tabelNumber);
 	};
 
 	return (
@@ -100,7 +100,7 @@ const TableCard = ({
 	name,
 	order,
 	time,
-	onReserveClick,
+	handleReserveClick,
 }) => {
 	return (
 		<>
@@ -114,7 +114,10 @@ const TableCard = ({
 				/>
 			)}
 			{state === "empty" && (
-				<EmptyTable tabelNumber={tabelNumber} onReserveClick={onReserveClick} />
+				<EmptyTable
+					tabelNumber={tabelNumber}
+					handleReserveClick={handleReserveClick}
+				/>
 			)}
 		</>
 	);

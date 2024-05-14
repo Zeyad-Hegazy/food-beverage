@@ -29,13 +29,12 @@ const TableComponent = () => {
 						<TableCard
 							key={table.tableNumber}
 							{...table}
-							onReserveClick={handleReserveClick}
+							handleReserveClick={handleReserveClick}
 						/>
 					))}
 
 				{selectedTable && (
 					<ReserveForm
-						tableNumber={selectedTable}
 						selectedTable={selectedTable}
 						handleReserveClick={handleReserveClick}
 					/>

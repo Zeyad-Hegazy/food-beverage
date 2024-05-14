@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown, faClose } from "@fortawesome/free-solid-svg-icons";
+import Indicator from "./../components/Indicator";
 
 const Home = () => {
 	const meals = useSelector((state) => state.meals);
@@ -63,24 +64,27 @@ const Home = () => {
 			>
 				<Cart />
 			</div>
-			<button
-				className="px-3 py-2 border-0 rounded-2"
-				style={{
-					position: "fixed",
-					top: "20px",
-					right: "20px",
-					zIndex: "999",
-					background: "#ff8500",
-					color: "white",
-				}}
-				onClick={toggleCartVisibility}
-			>
-				{cartVisible ? (
-					<FontAwesomeIcon icon={faClose} />
-				) : (
-					<FontAwesomeIcon icon={faCartArrowDown} />
-				)}
-			</button>
+			<div className="position-relative">
+				<button
+					className="px-3 py-2 border-0 rounded-2"
+					style={{
+						position: "fixed",
+						top: "20px",
+						right: "20px",
+						zIndex: "999",
+						background: "#ff8500",
+						color: "white",
+					}}
+					onClick={toggleCartVisibility}
+				>
+					{cartVisible ? (
+						<FontAwesomeIcon icon={faClose} />
+					) : (
+						<FontAwesomeIcon icon={faCartArrowDown} />
+					)}
+					{!cartVisible && <Indicator />}
+				</button>
+			</div>
 		</div>
 	);
 };

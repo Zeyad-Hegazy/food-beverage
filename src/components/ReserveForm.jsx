@@ -50,9 +50,9 @@ const ReserveForm = ({ selectedTable, handleReserveClick }) => {
 					style={{ outline: "none", color: "#C6C6C6", resize: "none" }}
 				/>
 
-				<div className="actions align-self-end d-flex gap-4 mt-4">
+				<div className="align-self-end d-flex gap-4 mt-4">
 					<button
-						className="px-5 py-2 border-0 rounded-2"
+						className="px-3 py-2 px-lg-5 py-lg-2 border-0 rounded-2"
 						style={{ background: "#EEEEEE" }}
 						onClick={() => handleReserveClick(null)}
 					>
@@ -60,7 +60,7 @@ const ReserveForm = ({ selectedTable, handleReserveClick }) => {
 					</button>
 					<button
 						type="submit"
-						className="px-5 py-2 border-0 rounded-2 text-white"
+						className="px-3 py-2 px-lg-5 py-lg-2 border-0 rounded-2 text-white"
 						style={{ background: "#ff8500" }}
 					>
 						Done

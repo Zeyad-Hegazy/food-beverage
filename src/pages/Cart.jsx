@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { applyDiscount, clear } from "../store/slices/CartSlice";
 import { useState } from "react";
+import printCartItems from "../utils/printCartItems";
 
 const CartOrderStep = ({
 	cart,
@@ -216,7 +217,13 @@ const CartPlaceStep = ({
 	);
 };
 
-const CartPayStep = ({ setStep, handleDiscount, handleClear, totalPrice }) => {
+const CartPayStep = ({
+	cart,
+	setStep,
+	handleDiscount,
+	handleClear,
+	totalPrice,
+}) => {
 	return (
 		<>
 			<div>
@@ -269,8 +276,7 @@ const CartPayStep = ({ setStep, handleDiscount, handleClear, totalPrice }) => {
 					<button
 						className="btn w-50"
 						style={{ background: "#FF8500", color: "white" }}
-						// handle confirm logic
-						// onClick={() => setStep("confirm")}
+						onClick={() => printCartItems(cart, totalPrice)}
 					>
 						Confirm payment
 					</button>
@@ -317,6 +323,7 @@ const Cart = () => {
 			)}
 			{step === "pay" && (
 				<CartPayStep
+					cart={cart}
 					totalPrice={totalPrice}
 					handleDiscount={handleDiscount}
 					handleClear={handleClear}
