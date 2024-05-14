@@ -8,9 +8,9 @@ const App = () => {
 	return (
 		<div className="app bg d-flex">
 			<SideBar />
+
 			<Routes>
 				<Route path="/" element={<Home />} />
-				{/* <Route path="/cart" element={<Cart />} /> */}
 				<Route path="/table" element={<TableComponent />} />
 			</Routes>
 		</div>
